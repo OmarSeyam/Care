@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".fragment.AddArticleFragment">
+
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="الأسم"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtDescription"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="الوصف"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="أضف التصنيف"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddImg"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/material_dynamic_primary70"
+        android:text="أضف صورة"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+
+    <Button
+        android:id="@+id/btnAddVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="-250dp"
+        android:backgroundTint="@color/material_dynamic_primary80"
+        android:text="أضف فيديو"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnAddImg"
+        app:layout_constraintStart_toEndOf="@+id/btnAddImg" />
+
+    <Button
+        android:id="@+id/btnAddAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginEnd="-250dp"
+        android:backgroundTint="@color/material_dynamic_primary60"
+        android:text="أضف صوت"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnAddImg"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddImg" />
+
+    <ImageView
+        android:id="@+id/imgAudio"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/btnAddAudio"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddAudio"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/btnAddImg"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddImg"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imgVideo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/btnAddVideo"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddVideo"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="212dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="56dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:src="@tools:sample/avatars" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
