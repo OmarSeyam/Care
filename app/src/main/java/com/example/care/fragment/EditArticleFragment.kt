@@ -214,6 +214,8 @@ class EditArticleFragment : Fragment() {
         audio: String,
         audioName: String
     ) {
+        val sharedP = d.getSharedPreferences("MyPref", Context.MODE_PRIVATE)
+        val idCategory = sharedP.getString("idCategory", "0").toString()
         val article = Article(
             "",
             name,
@@ -223,7 +225,8 @@ class EditArticleFragment : Fragment() {
             audio,
             imgName,
             videoName,
-            audioName
+            audioName,
+            idCategory
         )
         db.collection("Article").document(id)
             .set(article)

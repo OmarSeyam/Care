@@ -2,6 +2,7 @@ package com.example.care.fragment
 
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -51,21 +52,37 @@ class ArticleFragment : Fragment() {
         }
     }
     fun getAllArticles(){
+        val sharedP = d.getSharedPreferences("MyPref", Context.MODE_PRIVATE)
+        val idCategory = sharedP.getString("idCategory", "0").toString()
         db.collection("Article")
             .get()
             .addOnSuccessListener {
                 for (document in it) {
-                    val id =document.id
-                    val name = document.getString("name")
-                    val description = document.getString("description")
-                    val img = document.getString("img")
-                    val imgName = document.getString("imgName")
-                    val audio = document.getString("audio")
-                    val audioName = document.getString("audioName")
-                    val video = document.getString("video")
-                    val videoName = document.getString("videoName")
-                    val article=Article(id,name!!,description!!,img!!,video!!,audio!!,imgName!!,videoName!!,audioName!!)
-                    data.add(article)
+                    val idCategory1 = document.getString("idCategory")
+                    if (idCategory1 ==idCategory) {
+                        val id = document.id
+                        val name = document.getString("name")
+                        val description = document.getString("description")
+                        val img = document.getString("img")
+                        val imgName = document.getString("imgName")
+                        val audio = document.getString("audio")
+                        val audioName = document.getString("audioName")
+                        val video = document.getString("video")
+                        val videoName = document.getString("videoName")
+                        val article = Article(
+                            id,
+                            name!!,
+                            description!!,
+                            img!!,
+                            video!!,
+                            audio!!,
+                            imgName!!,
+                            videoName!!,
+                            audioName!!,
+                            idCategory!!
+                        )
+                        data.add(article)
+                    }
                 }
                 var articleAdapter = ArticleAdapter(d, data)
                 binding.rv.layoutManager = LinearLayoutManager(d)

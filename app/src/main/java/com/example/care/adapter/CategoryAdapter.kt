@@ -41,6 +41,10 @@ class CategoryAdapter(var activity: Activity, var data: ArrayList<Category>):
             (activity as MainActivity).makeCurrentFragment(EditCategoryFragment())
         }
         holder.binding.cardView.setOnClickListener {
+            val sharedP=activity.getSharedPreferences("MyPref", Context.MODE_PRIVATE)
+            val edit=sharedP!!.edit()
+            edit.putString("idCategory",data[position].id)
+            edit.apply()
             val i=Intent(activity,ArticlesActivity::class.java)
             activity.startActivity(i)
         }

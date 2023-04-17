@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.container, fragment).addToBackStack(null)
             commit()
-        }
+            }
+
     }
 
 }

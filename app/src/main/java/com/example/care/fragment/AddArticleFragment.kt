@@ -2,6 +2,7 @@ package com.example.care.fragment
 
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
@@ -116,7 +117,8 @@ class AddArticleFragment : Fragment() {
         showDialog()
         val name = binding.txtName.text.toString()
         val description = binding.txtDescription.text.toString()
-
+        val sharedP = d.getSharedPreferences("MyPref", Context.MODE_PRIVATE)
+        val idCategory = sharedP.getString("idCategory", "0").toString()
         if (name.isNotEmpty() && description.isNotEmpty() && imageURI != null && videoURI != null && audioURI != null) {
             val article = Article(
                 "",
@@ -127,7 +129,8 @@ class AddArticleFragment : Fragment() {
                 audio,
                 imgName,
                 videoName,
-                audioName
+                audioName,
+                idCategory
             )
             db.collection("Article")
                 .add(article)

@@ -68,7 +68,7 @@ class EditCategoryFragment : Fragment(), java.io.Serializable {
         binding.btnDelete.setOnClickListener {
             val dialog = AlertDialog.Builder(activity)
             dialog.setTitle("حذف")
-            dialog.setMessage("do you want delete this Caegory!")
+            dialog.setMessage("هل ترغب في حذف هذا التصنيف!")
             dialog.setPositiveButton("yes") { _, _ ->
                 db.collection("Category").document(id)
                     .delete()
@@ -76,7 +76,6 @@ class EditCategoryFragment : Fragment(), java.io.Serializable {
                         Toast.makeText(activity, "تم الحذف", Toast.LENGTH_SHORT).show()
                         (d as MainActivity).makeCurrentFragment(CategoryFragment())
                         imageRef.child(imgName).delete()
-                        Toast.makeText(activity, "فشل الحذف", Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener {
                         Toast.makeText(activity, "فشل الحذف", Toast.LENGTH_SHORT).show()
